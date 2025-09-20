@@ -183,8 +183,8 @@ client.on('messageCreate', async (message) => {
         if (state.blacklistedUsers[message.guild.id].includes(message.author.id)) {
           const embed = new EmbedBuilder()
             .setColor(0xFF0000)
-            .setTitle('Blacklisted')
-            .setDescription('You are blacklisted and cannot use this bot.');
+            .setTitle('อุ๊ย! อยู่ในแบล็คลิสต์')
+            .setDescription('ขออภัยนะคะ ดูเหมือนว่าคุณจะอยู่ในแบล็คลิสต์ เลยยังใช้งานส่วนนี้ไม่ได้ค่ะ');
           return message.reply({
             embeds: [embed]
           });
@@ -193,8 +193,8 @@ client.on('messageCreate', async (message) => {
       if (activeRequests.has(message.author.id)) {
         const embed = new EmbedBuilder()
           .setColor(0xFFFF00)
-          .setTitle('Request In Progress')
-          .setDescription('Please wait until your previous action is complete.');
+          .setTitle('ใจเย็นๆ น้า')
+          .setDescription('กำลังจัดการคำขอของคุณอยู่ค่ะ รอสักครู่นะคะ เดี๋ยวจะรีบทำให้เลย');
         await message.reply({
           embeds: [embed]
         });
@@ -255,8 +255,8 @@ async function handleButtonInteraction(interaction) {
     if (state.blacklistedUsers[interaction.guild.id].includes(interaction.user.id)) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Blacklisted')
-        .setDescription('You are blacklisted and cannot use this interaction.');
+        .setTitle('อุ๊ย! อยู่ในแบล็คลิสต์')
+        .setDescription('ขออภัยนะคะ ดูเหมือนว่าคุณจะอยู่ในแบล็คลิสต์ เลยยังใช้งานส่วนนี้ไม่ได้ค่ะ');
       return interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -317,8 +317,8 @@ async function handleDeleteMessageInteraction(interaction, msgId) {
         } else {
           const embed = new EmbedBuilder()
             .setColor(0xFF0000)
-            .setTitle('Not For You')
-            .setDescription('This button is not meant for you.');
+            .setTitle('ปุ่มนี้ไม่ใช่ของคุณน้า')
+            .setDescription('ดูเหมือนว่าปุ่มนี้จะไม่ได้มีไว้สำหรับคุณนะคะ');
           return interaction.reply({
             embeds: [embed],
             flags: MessageFlags.Ephemeral
@@ -347,8 +347,8 @@ async function handleClearMemoryCommand(interaction) {
   } else {
     const embed = new EmbedBuilder()
       .setColor(0xFF5555)
-      .setTitle('Feature Disabled')
-      .setDescription('Clearing chat history is not enabled for this server, Server-Wide chat history is active.');
+      .setTitle('คุณสมบัตินี้ปิดอยู่ค่ะ')
+      .setDescription('ตอนนี้เซิร์ฟเวอร์เปิดใช้ประวัติการแชทแบบทั้งเซิร์ฟเวอร์อยู่ เลยล้างประวัติส่วนตัวไม่ได้นะคะ');
     await interaction.reply({
       embeds: [embed]
     });
@@ -362,8 +362,8 @@ async function handleCustomPersonalityCommand(interaction) {
   } else {
     const embed = new EmbedBuilder()
       .setColor(0xFF5555)
-      .setTitle('Feature Disabled')
-      .setDescription('Custom personality is not enabled for this server, Server-Wide personality is active.');
+      .setTitle('คุณสมบัตินี้ปิดอยู่ค่ะ')
+      .setDescription('ตอนนี้เซิร์ฟเวอร์เปิดใช้บุคลิกภาพแบบทั้งเซิร์ฟเวอร์อยู่ เลยยังตั้งค่าบุคลิกส่วนตัวไม่ได้นะคะ');
     await interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -378,8 +378,8 @@ async function handleRemovePersonalityCommand(interaction) {
   } else {
     const embed = new EmbedBuilder()
       .setColor(0xFF5555)
-      .setTitle('Feature Disabled')
-      .setDescription('Custom personality is not enabled for this server, Server-Wide personality is active.');
+      .setTitle('คุณสมบัตินี้ปิดอยู่ค่ะ')
+      .setDescription('ตอนนี้เซิร์ฟเวอร์เปิดใช้บุคลิกภาพแบบทั้งเซิร์ฟเวอร์อยู่ เลยยังตั้งค่าบุคลิกส่วนตัวไม่ได้นะคะ');
     await interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -394,8 +394,8 @@ async function handleToggleResponseMode(interaction) {
   } else {
     const embed = new EmbedBuilder()
       .setColor(0xFF5555)
-      .setTitle('Feature Disabled')
-      .setDescription('Toggling Response Mode is not enabled for this server, Server-Wide Response Mode is active.');
+      .setTitle('คุณสมบัตินี้ปิดอยู่ค่ะ')
+      .setDescription('ตอนนี้เซิร์ฟเวอร์เปิดใช้โหมดการตอบกลับแบบทั้งเซิร์ฟเวอร์อยู่ เลยยังปรับเปลี่ยนส่วนตัวไม่ได้นะคะ');
     await interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -426,8 +426,8 @@ async function handleTextMessage(message) {
     }
     const embed = new EmbedBuilder()
       .setColor(0x00FFFF)
-      .setTitle('Empty Message')
-      .setDescription("It looks like you didn't say anything. What would you like to talk about?");
+      .setTitle('ข้อความว่างเปล่า?')
+      .setDescription("เอ... เหมือนจะยังไม่ได้พิมพ์อะไรเลยนะคะ อยากคุยเรื่องอะไรดีคะ?");
     const botMessage = await message.reply({
       embeds: [embed]
     });
@@ -447,12 +447,12 @@ async function handleTextMessage(message) {
     if (SEND_RETRY_ERRORS_TO_DISCORD) {
       clearInterval(typingInterval);
       const updateEmbedDescription = (textAttachmentStatus, imageAttachmentStatus, finalText) => {
-        return `Let me think...\n\n- ${textAttachmentStatus}: Text Attachment Check\n- ${imageAttachmentStatus}: Media Attachment Check\n${finalText || ''}`;
+        return `ขอเวลาคิดแป๊บนึงนะคะ...\n\n- ${textAttachmentStatus}: กำลังตรวจสอบไฟล์ข้อความ\n- ${imageAttachmentStatus}: กำลังตรวจสอบไฟล์มีเดีย\n${finalText || ''}`;
       };
 
       const embed = new EmbedBuilder()
         .setColor(0x00FFFF)
-        .setTitle('Processing')
+        .setTitle('กำลังประมวลผลค่ะ')
         .setDescription(updateEmbedDescription('[🔁]', '[🔁]'));
       botMessage = await message.reply({
         embeds: [embed]
@@ -465,7 +465,7 @@ async function handleTextMessage(message) {
       });
 
       parts = await processPromptAndMediaAttachments(messageContent, message);
-      embed.setDescription(updateEmbedDescription('[☑️]', '[☑️]', '### All checks done. Waiting for the response...'));
+      embed.setDescription(updateEmbedDescription('[☑️]', '[☑️]', '### ตรวจสอบเรียบร้อย! รอคำตอบสักครู่นะคะ...'));
       await botMessage.edit({
         embeds: [embed]
       });
@@ -496,7 +496,7 @@ async function handleTextMessage(message) {
       username: message.author.username,
       displayName: message.author.displayName
     };
-    infoStr = `\nYou are currently engaging with users in the ${message.guild.name} Discord server.\n\n## Current User Information\nUsername: \`${userInfo.username}\`\nDisplay Name: \`${userInfo.displayName}\``;
+    infoStr = `\nตอนนี้กำลังคุยกับผู้ใช้ในเซิร์ฟเวอร์ Discord ที่ชื่อ ${message.guild.name} นะคะ\n\n## ข้อมูลผู้ใช้ปัจจุบัน\nชื่อผู้ใช้: \`${userInfo.username}\`\nชื่อที่แสดง: \`${userInfo.displayName}\``;
   }
 
   const isServerChatHistoryEnabled = guildId ? state.serverSettings[guildId]?.serverChatHistory : false;
@@ -706,8 +706,8 @@ async function handleModalSubmit(interaction) {
 
       const embed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('Success')
-        .setDescription('Custom Personality Instructions Saved!');
+        .setTitle('เรียบร้อยค่ะ!')
+        .setDescription('บันทึกบุคลิกภาพที่คุณตั้งค่าไว้ให้แล้วนะคะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -722,8 +722,8 @@ async function handleModalSubmit(interaction) {
 
       const embed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('Success')
-        .setDescription('Custom Server Personality Instructions Saved!');
+        .setTitle('เรียบร้อยค่ะ!')
+        .setDescription('บันทึกบุคลิกภาพสำหรับเซิร์ฟเวอร์นี้ให้แล้วนะคะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -739,8 +739,8 @@ async function clearChatHistory(interaction) {
     state.chatHistories[interaction.user.id] = {};
     const embed = new EmbedBuilder()
       .setColor(0x00FF00)
-      .setTitle('Chat History Cleared')
-      .setDescription('Chat history cleared!');
+      .setTitle('ล้างประวัติการคุยแล้วค่ะ')
+      .setDescription('ล้างประวัติการสนทนาของคุณเรียบร้อยแล้วค่ะ');
     await interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -758,8 +758,8 @@ async function alwaysRespond(interaction) {
     if (interaction.channel.type === ChannelType.DM) {
       const dmDisabledEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Feature Disabled in DMs')
-        .setDescription('This feature is disabled in direct messages.');
+        .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+        .setDescription('คุณสมบัตินี้ยังไม่รองรับการใช้งานในข้อความส่วนตัวค่ะ');
       await interaction.reply({
         embeds: [dmDisabledEmbed],
         flags: MessageFlags.Ephemeral
@@ -788,8 +788,8 @@ async function handleRespondToAllCommand(interaction) {
     if (interaction.channel.type === ChannelType.DM) {
       const dmEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Command Not Available')
-        .setDescription('This command cannot be used in DMs.');
+        .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+        .setDescription('คำสั่งนี้ไม่สามารถใช้งานในข้อความส่วนตัวได้ค่ะ');
       return interaction.reply({
         embeds: [dmEmbed],
         flags: MessageFlags.Ephemeral
@@ -799,8 +799,8 @@ async function handleRespondToAllCommand(interaction) {
     if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
       const adminEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Admin Required')
-        .setDescription('You need to be an admin to use this command.');
+        .setTitle('ต้องเป็นแอดมินนะคะ')
+        .setDescription('คำสั่งนี้สำหรับผู้ดูแลระบบเท่านั้นค่ะ');
       return interaction.reply({
         embeds: [adminEmbed],
         flags: MessageFlags.Ephemeral
@@ -814,8 +814,8 @@ async function handleRespondToAllCommand(interaction) {
       state.alwaysRespondChannels[channelId] = true;
       const startRespondEmbed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('Bot Response Enabled')
-        .setDescription('The bot will now respond to all messages in this channel.');
+        .setTitle('เปิดโหมดตอบกลับอัตโนมัติ')
+        .setDescription('ตอนนี้จะตอบทุกข้อความในช่องนี้แล้วนะคะ');
       await interaction.reply({
         embeds: [startRespondEmbed],
         ephemeral: false
@@ -824,8 +824,8 @@ async function handleRespondToAllCommand(interaction) {
       delete state.alwaysRespondChannels[channelId];
       const stopRespondEmbed = new EmbedBuilder()
         .setColor(0xFFA500)
-        .setTitle('Bot Response Disabled')
-        .setDescription('The bot will now stop responding to all messages in this channel.');
+        .setTitle('ปิดโหมดตอบกลับอัตโนมัติ')
+        .setDescription('ตอนนี้จะตอบกลับเมื่อถูกเรียกเท่านั้นนะคะ');
       await interaction.reply({
         embeds: [stopRespondEmbed],
         ephemeral: false
@@ -841,8 +841,8 @@ async function toggleChannelChatHistory(interaction) {
     if (interaction.channel.type === ChannelType.DM) {
       const dmEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Command Not Available')
-        .setDescription('This command cannot be used in DMs.');
+        .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+        .setDescription('คำสั่งนี้ไม่สามารถใช้งานในข้อความส่วนตัวได้ค่ะ');
       return interaction.reply({
         embeds: [dmEmbed],
         flags: MessageFlags.Ephemeral
@@ -852,8 +852,8 @@ async function toggleChannelChatHistory(interaction) {
     if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
       const adminEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Admin Required')
-        .setDescription('You need to be an admin to use this command.');
+        .setTitle('ต้องเป็นแอดมินนะคะ')
+        .setDescription('คำสั่งนี้สำหรับผู้ดูแลระบบเท่านั้นค่ะ');
       return interaction.reply({
         embeds: [adminEmbed],
         flags: MessageFlags.Ephemeral
@@ -870,8 +870,8 @@ async function toggleChannelChatHistory(interaction) {
 
       const enabledEmbed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('Channel History Enabled')
-        .setDescription(`Channel-wide chat history has been enabled.`);
+        .setTitle('เปิดใช้งานประวัติการแชทระดับช่อง')
+        .setDescription(`เปิดใช้งานประวัติการสนทนาสำหรับช่องนี้เรียบร้อยแล้วค่ะ`);
       await interaction.reply({
         embeds: [enabledEmbed],
         ephemeral: false
@@ -883,8 +883,8 @@ async function toggleChannelChatHistory(interaction) {
 
       const disabledEmbed = new EmbedBuilder()
         .setColor(0xFFA500)
-        .setTitle('Channel History Disabled')
-        .setDescription('Channel-wide chat history has been disabled.');
+        .setTitle('ปิดใช้งานประวัติการแชทระดับช่อง')
+        .setDescription('ปิดใช้งานประวัติการสนทนาสำหรับช่องนี้แล้วนะคะ');
       await interaction.reply({
         embeds: [disabledEmbed],
         ephemeral: false
@@ -985,8 +985,8 @@ async function handleBlacklistCommand(interaction) {
     if (interaction.channel.type === ChannelType.DM) {
       const dmEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Command Not Available')
-        .setDescription('This command cannot be used in DMs.');
+        .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+        .setDescription('คำสั่งนี้ไม่สามารถใช้งานในข้อความส่วนตัวได้ค่ะ');
       return interaction.reply({
         embeds: [dmEmbed],
         flags: MessageFlags.Ephemeral
@@ -996,8 +996,8 @@ async function handleBlacklistCommand(interaction) {
     if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
       const adminEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Admin Required')
-        .setDescription('You need to be an admin to use this command.');
+        .setTitle('ต้องเป็นแอดมินนะคะ')
+        .setDescription('คำสั่งนี้สำหรับผู้ดูแลระบบเท่านั้นค่ะ');
       return interaction.reply({
         embeds: [adminEmbed],
         flags: MessageFlags.Ephemeral
@@ -1013,16 +1013,16 @@ async function handleBlacklistCommand(interaction) {
       state.blacklistedUsers[guildId].push(userId);
       const blacklistedEmbed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('User Blacklisted')
-        .setDescription(`<@${userId}> has been blacklisted.`);
+        .setTitle('เพิ่มเข้าแบล็คลิสต์แล้วค่ะ')
+        .setDescription(`เพิ่ม <@${userId}> เข้าไปในแบล็คลิสต์เรียบร้อยแล้วค่ะ`);
       await interaction.reply({
         embeds: [blacklistedEmbed]
       });
     } else {
       const alreadyBlacklistedEmbed = new EmbedBuilder()
         .setColor(0xFFA500)
-        .setTitle('User Already Blacklisted')
-        .setDescription(`<@${userId}> is already blacklisted.`);
+        .setTitle('อยู่ในแบล็คลิสต์อยู่แล้ว')
+        .setDescription(`<@${userId}> อยู่ในแบล็คลิสต์อยู่แล้วนะคะ`);
       await interaction.reply({
         embeds: [alreadyBlacklistedEmbed]
       });
@@ -1037,8 +1037,8 @@ async function handleWhitelistCommand(interaction) {
     if (interaction.channel.type === ChannelType.DM) {
       const dmEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Command Not Available')
-        .setDescription('This command cannot be used in DMs.');
+        .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+        .setDescription('คำสั่งนี้ไม่สามารถใช้งานในข้อความส่วนตัวได้ค่ะ');
       return interaction.reply({
         embeds: [dmEmbed],
         flags: MessageFlags.Ephemeral
@@ -1048,8 +1048,8 @@ async function handleWhitelistCommand(interaction) {
     if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
       const adminEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Admin Required')
-        .setDescription('You need to be an admin to use this command.');
+        .setTitle('ต้องเป็นแอดมินนะคะ')
+        .setDescription('คำสั่งนี้สำหรับผู้ดูแลระบบเท่านั้นค่ะ');
       return interaction.reply({
         embeds: [adminEmbed],
         flags: MessageFlags.Ephemeral
@@ -1066,16 +1066,16 @@ async function handleWhitelistCommand(interaction) {
       state.blacklistedUsers[guildId].splice(index, 1);
       const removedEmbed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('User Whitelisted')
-        .setDescription(`<@${userId}> has been removed from the blacklist.`);
+        .setTitle('นำออกจากแบล็คลิสต์แล้วค่ะ')
+        .setDescription(`นำ <@${userId}> ออกจากแบล็คลิสต์เรียบร้อยแล้วค่ะ`);
       await interaction.reply({
         embeds: [removedEmbed]
       });
     } else {
       const notFoundEmbed = new EmbedBuilder()
         .setColor(0xFFA500)
-        .setTitle('User Not Found')
-        .setDescription(`<@${userId}> is not in the blacklist.`);
+        .setTitle('ไม่พบผู้ใช้ในแบล็คลิสต์')
+        .setDescription(`<@${userId}> ไม่ได้อยู่ในแบล็คลิสต์นะคะ`);
       await interaction.reply({
         embeds: [notFoundEmbed]
       });
@@ -1087,13 +1087,13 @@ async function handleWhitelistCommand(interaction) {
 
 async function setCustomPersonality(interaction) {
   const customId = 'custom-personality-input';
-  const title = 'Enter Custom Personality Instructions';
+  const title = 'ตั้งค่าบุคลิกภาพ';
 
   const input = new TextInputBuilder()
     .setCustomId(customId)
-    .setLabel("What should the bot's personality be like?")
+    .setLabel("อยากให้มีบุคลิกแบบไหนคะ?")
     .setStyle(TextInputStyle.Paragraph)
-    .setPlaceholder("Enter the custom instructions here...")
+    .setPlaceholder("ลองอธิบายบุคลิกที่อยากให้เป็นที่นี่ได้เลยค่ะ...")
     .setMinLength(10)
     .setMaxLength(4000);
 
@@ -1116,8 +1116,8 @@ async function downloadMessage(interaction) {
     if (!textContent) {
       const emptyEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Empty Message')
-        .setDescription('The message is empty..?');
+        .setTitle('ข้อความว่างเปล่า?')
+        .setDescription('เอ... เหมือนจะไม่มีเนื้อหาในข้อความนี้นะคะ');
       await interaction.reply({
         embeds: [emptyEmbed],
         flags: MessageFlags.Ephemeral
@@ -1134,8 +1134,8 @@ async function downloadMessage(interaction) {
 
     const initialEmbed = new EmbedBuilder()
       .setColor(0xFFFFFF)
-      .setTitle('Message Content Downloaded')
-      .setDescription(`Here is the content of the message.`);
+      .setTitle('บันทึกเนื้อหาข้อความแล้ว')
+      .setDescription(`นี่คือเนื้อหาจากข้อความที่คุณต้องการบันทึกค่ะ`);
 
     let response;
     if (interaction.channel.type === ChannelType.DM) {
@@ -1152,8 +1152,8 @@ async function downloadMessage(interaction) {
         });
         const dmSentEmbed = new EmbedBuilder()
           .setColor(0x00FF00)
-          .setTitle('Content Sent')
-          .setDescription('The message content has been sent to your DMs.');
+          .setTitle('ส่งให้ทาง DM แล้วนะคะ')
+          .setDescription('ส่งเนื้อหาข้อความไปให้ในข้อความส่วนตัวแล้วค่ะ');
         await interaction.reply({
           embeds: [dmSentEmbed],
           flags: MessageFlags.Ephemeral
@@ -1162,8 +1162,8 @@ async function downloadMessage(interaction) {
         console.error(`Failed to send DM: ${error}`);
         const failDMEmbed = new EmbedBuilder()
           .setColor(0xFF0000)
-          .setTitle('Delivery Failed')
-          .setDescription('Failed to send the content to your DMs.');
+          .setTitle('ส่งไม่สำเร็จค่ะ')
+          .setDescription('ขออภัยนะคะ ไม่สามารถส่งเนื้อหาไปที่ข้อความส่วนตัวของคุณได้');
         response = await interaction.reply({
           embeds: [failDMEmbed],
           files: [attachment],
@@ -1177,7 +1177,7 @@ async function downloadMessage(interaction) {
 
     const msgUrl = await uploadText(textContent);
     const updatedEmbed = EmbedBuilder.from(response.embeds[0])
-      .setDescription(`Here is the content of the message.\n${msgUrl}`);
+      .setDescription(`นี่คือเนื้อหาจากข้อความที่คุณต้องการบันทึกค่ะ\n${msgUrl}`);
 
     if (interaction.channel.type === ChannelType.DM) {
       await interaction.editReply({
@@ -1220,8 +1220,8 @@ async function downloadConversation(interaction) {
     if (!conversationHistory || conversationHistory.length === 0) {
       const noHistoryEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('No History Found')
-        .setDescription('No conversation history found.');
+        .setTitle('ไม่พบประวัติการสนทนา')
+        .setDescription('ยังไม่มีประวัติการคุยกันเลยค่ะ ลองคุยกันก่อนนะคะ');
       await interaction.reply({
         embeds: [noHistoryEmbed],
         flags: MessageFlags.Ephemeral
@@ -1245,18 +1245,18 @@ async function downloadConversation(interaction) {
     try {
       if (interaction.channel.type === ChannelType.DM) {
         await interaction.reply({
-          content: "> `Here's your conversation history:`",
+          content: "> `นี่คือประวัติการสนทนาของคุณค่ะ:`",
           files: [file]
         });
       } else {
         await interaction.user.send({
-          content: "> `Here's your conversation history:`",
+          content: "> `นี่คือประวัติการสนทนาของคุณค่ะ:`",
           files: [file]
         });
         const dmSentEmbed = new EmbedBuilder()
           .setColor(0x00FF00)
-          .setTitle('History Sent')
-          .setDescription('Your conversation history has been sent to your DMs.');
+          .setTitle('ส่งประวัติการคุยให้แล้วนะคะ')
+          .setDescription('ส่งไฟล์ประวัติการสนทนาไปให้ในข้อความส่วนตัวแล้วค่ะ');
         await interaction.reply({
           embeds: [dmSentEmbed],
           flags: MessageFlags.Ephemeral
@@ -1266,8 +1266,8 @@ async function downloadConversation(interaction) {
       console.error(`Failed to send DM: ${error}`);
       const failDMEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Delivery Failed')
-        .setDescription('Failed to send the conversation history to your DMs.');
+        .setTitle('ส่งไม่สำเร็จค่ะ')
+        .setDescription('ขออภัยนะคะ ไม่สามารถส่งประวัติการสนทนาไปที่ข้อความส่วนตัวของคุณได้');
       await interaction.reply({
         embeds: [failDMEmbed],
         files: [file],
@@ -1287,8 +1287,8 @@ async function removeCustomPersonality(interaction) {
     delete state.customInstructions[interaction.user.id];
     const embed = new EmbedBuilder()
       .setColor(0x00FF00)
-      .setTitle('Removed')
-      .setDescription('Custom personality instructions removed!');
+      .setTitle('ลบเรียบร้อยค่ะ')
+      .setDescription('ลบการตั้งค่าบุคลิกภาพของคุณแล้ว กลับไปใช้บุคลิกภาพเริ่มต้นนะคะ');
 
     await interaction.reply({
       embeds: [embed],
@@ -1331,8 +1331,8 @@ async function toggleServerWideChatHistory(interaction) {
     if (!interaction.guild) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Server Command Only')
-        .setDescription('This command can only be used in a server.');
+        .setTitle('ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ')
+        .setDescription('คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -1344,16 +1344,16 @@ async function toggleServerWideChatHistory(interaction) {
     initializeBlacklistForGuild(serverId);
 
     state.serverSettings[serverId].serverChatHistory = !state.serverSettings[serverId].serverChatHistory;
-    const statusMessage = `Server-wide Chat History is now \`${state.serverSettings[serverId].serverChatHistory ? "enabled" : "disabled"}\``;
+    const statusMessage = `ตอนนี้ประวัติการแชททั่วทั้งเซิร์ฟเวอร์ถูก \`${state.serverSettings[serverId].serverChatHistory ? "เปิดใช้งาน" : "ปิดใช้งาน"}\` แล้วค่ะ`;
 
     let warningMessage = "";
     if (state.serverSettings[serverId].serverChatHistory && !state.serverSettings[serverId].customServerPersonality) {
-      warningMessage = "\n\n⚠️ **Warning:** Enabling server-side chat history without enhancing server-wide personality management is not recommended. The bot may get confused between its personalities and conversations with different users.";
+      warningMessage = "\n\n⚠️ **คำเตือน:** การเปิดประวัติการแชทของเซิร์ฟเวอร์โดยไม่เปิดใช้บุคลิกภาพสำหรับเซิร์ฟเวอร์ด้วย อาจทำให้สับสนได้นะคะ เพราะจะใช้ความจำร่วมกับผู้ใช้คนอื่นค่ะ";
     }
 
     const embed = new EmbedBuilder()
       .setColor(state.serverSettings[serverId].serverChatHistory ? 0x00FF00 : 0xFF0000)
-      .setTitle('Chat History Toggled')
+      .setTitle('สลับสถานะประวัติการแชท')
       .setDescription(statusMessage + warningMessage);
 
     await interaction.reply({
@@ -1370,8 +1370,8 @@ async function toggleServerPersonality(interaction) {
     if (!interaction.guild) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Server Command Only')
-        .setDescription('This command can only be used in a server.');
+        .setTitle('ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ')
+        .setDescription('คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -1387,7 +1387,7 @@ async function toggleServerPersonality(interaction) {
 
     const embed = new EmbedBuilder()
       .setColor(state.serverSettings[serverId].customServerPersonality ? 0x00FF00 : 0xFF0000)
-      .setTitle('Server Personality Toggled')
+      .setTitle('สลับสถานะบุคลิกภาพเซิร์ฟเวอร์')
       .setDescription(statusMessage);
 
     await interaction.reply({
@@ -1404,8 +1404,8 @@ async function toggleServerResponsePreference(interaction) {
     if (!interaction.guild) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Server Command Only')
-        .setDescription('This command can only be used in a server.');
+        .setTitle('ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ')
+        .setDescription('คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -1417,11 +1417,11 @@ async function toggleServerResponsePreference(interaction) {
     initializeBlacklistForGuild(serverId);
 
     state.serverSettings[serverId].serverResponsePreference = !state.serverSettings[serverId].serverResponsePreference;
-    const statusMessage = `Server-wide Response Following is now \`${state.serverSettings[serverId].serverResponsePreference ? "enabled" : "disabled"}\``;
+    const statusMessage = `ตอนนี้การตั้งค่ารูปแบบการตอบกลับสำหรับทั้งเซิร์ฟเวอร์ถูก \`${state.serverSettings[serverId].serverResponsePreference ? "เปิดใช้งาน" : "ปิดใช้งาน"}\` แล้วค่ะ`;
 
     const embed = new EmbedBuilder()
       .setColor(state.serverSettings[serverId].serverResponsePreference ? 0x00FF00 : 0xFF0000)
-      .setTitle('Server Response Preference Toggled')
+      .setTitle('สลับสถานะรูปแบบการตอบกลับ')
       .setDescription(statusMessage);
 
     await interaction.reply({
@@ -1438,8 +1438,8 @@ async function toggleSettingSaveButton(interaction) {
     if (!interaction.guild) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Server Command Only')
-        .setDescription('This command can only be used in a server.');
+        .setTitle('ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ')
+        .setDescription('คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -1451,11 +1451,11 @@ async function toggleSettingSaveButton(interaction) {
     initializeBlacklistForGuild(serverId);
 
     state.serverSettings[serverId].settingsSaveButton = !state.serverSettings[serverId].settingsSaveButton;
-    const statusMessage = `Server-wide "Settings and Save Button" is now \`${state.serverSettings[serverId].settingsSaveButton ? "enabled" : "disabled"}\``;
+    const statusMessage = `ตอนนี้ปุ่ม "ตั้งค่าและบันทึก" สำหรับทั้งเซิร์ฟเวอร์ถูก \`${state.serverSettings[serverId].settingsSaveButton ? "เปิดใช้งาน" : "ปิดใช้งาน"}\` แล้วค่ะ`;
 
     const embed = new EmbedBuilder()
       .setColor(state.serverSettings[serverId].settingsSaveButton ? 0x00FF00 : 0xFF0000)
-      .setTitle('Settings Save Button Toggled')
+      .setTitle('สลับสถานะปุ่มตั้งค่าและบันทึก')
       .setDescription(statusMessage);
 
     await interaction.reply({
@@ -1473,9 +1473,9 @@ async function serverPersonality(interaction) {
 
   const input = new TextInputBuilder()
     .setCustomId(customId)
-    .setLabel("What should the bot's personality be like?")
+    .setLabel("อยากให้มีบุคลิกแบบไหนคะ?")
     .setStyle(TextInputStyle.Paragraph)
-    .setPlaceholder("Enter the custom instructions here...")
+    .setPlaceholder("ลองอธิบายบุคลิกที่อยากให้เป็นที่นี่ได้เลยค่ะ...")
     .setMinLength(10)
     .setMaxLength(4000);
 
@@ -1492,8 +1492,8 @@ async function clearServerChatHistory(interaction) {
     if (!interaction.guild) {
       const embed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Server Command Only')
-        .setDescription('This command can only be used in a server.');
+        .setTitle('ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ')
+        .setDescription('คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ');
       await interaction.reply({
         embeds: [embed],
         flags: MessageFlags.Ephemeral
@@ -1508,8 +1508,8 @@ async function clearServerChatHistory(interaction) {
       state.chatHistories[serverId] = {};
       const clearedEmbed = new EmbedBuilder()
         .setColor(0x00FF00)
-        .setTitle('Chat History Cleared')
-        .setDescription('Server-wide chat history cleared!');
+        .setTitle('ล้างประวัติการคุยแล้วค่ะ')
+        .setDescription('ล้างประวัติการสนทนาของทั้งเซิร์ฟเวอร์เรียบร้อยแล้วค่ะ');
       await interaction.reply({
         embeds: [clearedEmbed],
         flags: MessageFlags.Ephemeral
@@ -1517,8 +1517,8 @@ async function clearServerChatHistory(interaction) {
     } else {
       const disabledEmbed = new EmbedBuilder()
         .setColor(0xFFA500)
-        .setTitle('Feature Disabled')
-        .setDescription('Server-wide chat history is disabled for this server.');
+        .setTitle('คุณสมบัตินี้ปิดอยู่ค่ะ')
+        .setDescription('ประวัติการแชทของเซิร์ฟเวอร์ปิดใช้งานอยู่ เลยยังล้างไม่ได้นะคะ');
       await interaction.reply({
         embeds: [disabledEmbed],
         flags: MessageFlags.Ephemeral
@@ -1537,8 +1537,8 @@ async function downloadServerConversation(interaction) {
     if (!conversationHistory || conversationHistory.length === 0) {
       const noHistoryEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('No History Found')
-        .setDescription('No server-wide conversation history found.');
+        .setTitle('ไม่พบประวัติการสนทนา')
+        .setDescription('ยังไม่มีประวัติการคุยกันของเซิร์ฟเวอร์เลยค่ะ');
       await interaction.reply({
         embeds: [noHistoryEmbed],
         flags: MessageFlags.Ephemeral
@@ -1562,18 +1562,18 @@ async function downloadServerConversation(interaction) {
     try {
       if (interaction.channel.type === ChannelType.DM) {
         await interaction.reply({
-          content: "> `Here's the server-wide conversation history:`",
+          content: "> `นี่คือประวัติการสนทนาของเซิร์ฟเวอร์ค่ะ:`",
           files: [file]
         });
       } else {
         await interaction.user.send({
-          content: "> `Here's the server-wide conversation history:`",
+          content: "> `นี่คือประวัติการสนทนาของเซิร์ฟเวอร์ค่ะ:`",
           files: [file]
         });
         const dmSentEmbed = new EmbedBuilder()
           .setColor(0x00FF00)
-          .setTitle('History Sent')
-          .setDescription('Server-wide conversation history has been sent to your DMs.');
+          .setTitle('ส่งประวัติการคุยให้แล้วนะคะ')
+          .setDescription('ส่งไฟล์ประวัติการสนทนาของเซิร์ฟเวอร์ไปให้ในข้อความส่วนตัวแล้วค่ะ');
         await interaction.reply({
           embeds: [dmSentEmbed],
           flags: MessageFlags.Ephemeral
@@ -1583,8 +1583,8 @@ async function downloadServerConversation(interaction) {
       console.error(`Failed to send DM: ${error}`);
       const failDMEmbed = new EmbedBuilder()
         .setColor(0xFF0000)
-        .setTitle('Delivery Failed')
-        .setDescription('Failed to send the server-wide conversation history to your DMs.');
+        .setTitle('ส่งไม่สำเร็จค่ะ')
+        .setDescription('ขออภัยนะคะ ไม่สามารถส่งประวัติการสนทนาของเซิร์ฟเวอร์ไปที่ข้อความส่วนตัวของคุณได้');
       await interaction.reply({
         embeds: [failDMEmbed],
         files: [file],
@@ -1609,8 +1609,8 @@ async function toggleServerPreference(interaction) {
     }
     const embed = new EmbedBuilder()
       .setColor(0x00FF00)
-      .setTitle('Server Response Style Updated')
-      .setDescription(`Server response style updated to: ${state.serverSettings[guildId].responseStyle}`);
+      .setTitle('อัปเดตรูปแบบการตอบกลับแล้ว')
+      .setDescription(`เปลี่ยนรูปแบบการตอบกลับของเซิร์ฟเวอร์เป็นแบบ: ${state.serverSettings[guildId].responseStyle} แล้วนะคะ`);
 
     await interaction.reply({
       embeds: [embed],
@@ -1628,8 +1628,8 @@ async function showSettings(interaction, edit = false) {
       if (state.blacklistedUsers[interaction.guild.id].includes(interaction.user.id)) {
         const embed = new EmbedBuilder()
           .setColor(0xFF0000)
-          .setTitle('Blacklisted')
-          .setDescription('You are blacklisted and cannot use this interaction.');
+          .setTitle('อุ๊ย! อยู่ในแบล็คลิสต์')
+          .setDescription('ขออภัยนะคะ ดูเหมือนว่าคุณจะอยู่ในแบล็คลิสต์ เลยยังใช้งานส่วนนี้ไม่ได้ค่ะ');
         return interaction.reply({
           embeds: [embed],
           flags: MessageFlags.Ephemeral
@@ -1639,13 +1639,13 @@ async function showSettings(interaction, edit = false) {
 
     const mainButtons = [{
         customId: 'clear-memory',
-        label: 'Clear Memory',
+        label: 'ล้างความจำ',
         emoji: '🧹',
         style: ButtonStyle.Danger
       },
       {
         customId: 'general-settings',
-        label: 'General Settings',
+        label: 'ตั้งค่าทั่วไป',
         emoji: '⚙️',
         style: ButtonStyle.Secondary
       },
@@ -1663,8 +1663,8 @@ async function showSettings(interaction, edit = false) {
 
     const embed = new EmbedBuilder()
       .setColor(0x00FFFF)
-      .setTitle('Settings')
-      .setDescription('Please choose a category from the buttons below:');
+      .setTitle('การตั้งค่า')
+      .setDescription('เลือกหัวข้อที่ต้องการตั้งค่าจากปุ่มด้านล่างได้เลยค่ะ:');
     if (edit) {
       await interaction.update({
         embeds: [embed],
@@ -1694,44 +1694,44 @@ async function handleSubButtonInteraction(interaction, update = false) {
   const subButtonConfigs = {
     'general-settings': [{
         customId: 'always-respond',
-        label: `Always Respond: ${state.activeUsersInChannels[channelId][userId] ? 'ON' : 'OFF'}`,
+        label: `ตอบกลับเสมอ: ${state.activeUsersInChannels[channelId][userId] ? 'เปิด' : 'ปิด'}`,
         emoji: '↩️',
         style: ButtonStyle.Secondary
       },
       {
         customId: 'toggle-response-mode',
-        label: `Toggle Response Mode: ${responseMode}`,
+        label: `รูปแบบการตอบ: ${responseMode}`,
         emoji: '📝',
         style: ButtonStyle.Secondary
       },
       {
         customId: 'toggle-tool-preference',
-        label: `Tool: ${toolMode}`,
+        label: `เครื่องมือ: ${toolMode}`,
         emoji: '🛠️',
         style: ButtonStyle.Secondary
       },
       {
         customId: 'download-conversation',
-        label: 'Download Conversation',
+        label: 'ดาวน์โหลดประวัติการคุย',
         emoji: '🗃️',
         style: ButtonStyle.Secondary
       },
       ...(shouldDisplayPersonalityButtons ? [{
           customId: 'custom-personality',
-          label: 'Custom Personality',
+          label: 'ตั้งค่าบุคลิก',
           emoji: '🙌',
           style: ButtonStyle.Primary
         },
         {
           customId: 'remove-personality',
-          label: 'Remove Personality',
+          label: 'ลบบุคลิก',
           emoji: '🤖',
           style: ButtonStyle.Danger
         },
       ] : []),
       {
         customId: 'back_to_main_settings',
-        label: 'Back',
+        label: 'กลับ',
         emoji: '🔙',
         style: ButtonStyle.Secondary
       },
@@ -1756,8 +1756,8 @@ async function handleSubButtonInteraction(interaction, update = false) {
       embeds: [
         new EmbedBuilder()
         .setColor(0x00FFFF)
-        .setTitle(`${update ? 'General Settings' : interaction.customId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`)
-        .setDescription('Please choose an option from the buttons below:'),
+        .setTitle(`${update ? 'ตั้งค่าทั่วไป' : interaction.customId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`)
+        .setDescription('เลือกตัวเลือกที่ต้องการจากปุ่มด้านล่างได้เลยค่ะ:'),
       ],
       components: actionRows,
       flags: MessageFlags.Ephemeral,
@@ -1769,8 +1769,8 @@ async function showDashboard(interaction) {
   if (interaction.channel.type === ChannelType.DM) {
     const embed = new EmbedBuilder()
       .setColor(0xFF0000)
-      .setTitle('Command Restricted')
-      .setDescription('This command cannot be used in DMs.');
+      .setTitle('ใช้ใน DM ไม่ได้นะคะ')
+      .setDescription('คำสั่งนี้ไม่สามารถใช้งานในข้อความส่วนตัวได้ค่ะ');
     return interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -1779,8 +1779,8 @@ async function showDashboard(interaction) {
   if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
     const embed = new EmbedBuilder()
       .setColor(0xFF0000)
-      .setTitle('Administrator Required')
-      .setDescription('You need to be an admin to use this command.');
+      .setTitle('ต้องเป็นแอดมินนะคะ')
+      .setDescription('คำสั่งนี้สำหรับผู้ดูแลระบบเท่านั้นค่ะ');
     return interaction.reply({
       embeds: [embed],
       flags: MessageFlags.Ephemeral
@@ -1789,49 +1789,49 @@ async function showDashboard(interaction) {
   initializeBlacklistForGuild(interaction.guild.id);
   const buttonConfigs = [{
       customId: "server-chat-history",
-      label: "Toggle Server-Wide Conversation History",
+      label: "เปิด/ปิด ประวัติการคุยของเซิร์ฟเวอร์",
       emoji: "📦",
       style: ButtonStyle.Primary,
     },
     {
       customId: "clear-server",
-      label: "Clear Server-Wide Memory",
+      label: "ล้างความจำของเซิร์ฟเวอร์",
       emoji: "🧹",
       style: ButtonStyle.Danger,
     },
     {
       customId: "settings-save-buttons",
-      label: "Toggle Add Settings And Save Button",
+      label: "เปิด/ปิด ปุ่มตั้งค่าและบันทึก",
       emoji: "🔘",
       style: ButtonStyle.Primary,
     },
     {
       customId: "toggle-server-personality",
-      label: "Toggle Server Personality",
+      label: "เปิด/ปิด บุคลิกของเซิร์ฟเวอร์",
       emoji: "🤖",
       style: ButtonStyle.Primary,
     },
     {
       customId: "custom-server-personality",
-      label: "Custom Server Personality",
+      label: "ตั้งค่าบุคลิกเซิร์ฟเวอร์",
       emoji: "🙌",
       style: ButtonStyle.Primary,
     },
     {
       customId: "toggle-response-server-mode",
-      label: "Toggle Server-Wide Responses Style",
+      label: "เปิด/ปิด รูปแบบการตอบของเซิร์ฟเวอร์",
       emoji: "✏️",
       style: ButtonStyle.Primary,
     },
     {
       customId: "response-server-mode",
-      label: "Server-Wide Responses Style",
+      label: "รูปแบบการตอบของเซิร์ฟเวอร์",
       emoji: "📝",
       style: ButtonStyle.Secondary,
     },
     {
       customId: "download-server-conversation",
-      label: "Download Server Conversation",
+      label: "ดาวน์โหลดประวัติการคุยของเซิร์ฟเวอร์",
       emoji: "🗃️",
       style: ButtonStyle.Secondary,
     }
@@ -1854,8 +1854,8 @@ async function showDashboard(interaction) {
 
   const embed = new EmbedBuilder()
     .setColor(0xFFFFFF)
-    .setTitle('Settings')
-    .setDescription('Your Server Settings:');
+    .setTitle('การตั้งค่าเซิร์ฟเวอร์')
+    .setDescription('นี่คือการตั้งค่าสำหรับเซิร์ฟเวอร์ของคุณค่ะ:');
   await interaction.reply({
     embeds: [embed],
     components: actionRows,
@@ -1874,7 +1874,7 @@ async function addDownloadButton(botMessage) {
     const messageComponents = botMessage.components || [];
     const downloadButton = new ButtonBuilder()
       .setCustomId('download_message')
-      .setLabel('Save')
+      .setLabel('บันทึก')
       .setEmoji('⬇️')
       .setStyle(ButtonStyle.Secondary);
 
@@ -1900,7 +1900,7 @@ async function addDeleteButton(botMessage, msgId) {
     const messageComponents = botMessage.components || [];
     const downloadButton = new ButtonBuilder()
       .setCustomId(`delete_message-${msgId}`)
-      .setLabel('Delete')
+      .setLabel('ลบ')
       .setEmoji('🗑️')
       .setStyle(ButtonStyle.Secondary);
 
@@ -1960,7 +1960,7 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
     .addComponents(
       new ButtonBuilder()
       .setCustomId('stopGenerating')
-      .setLabel('Stop Generating')
+      .setLabel('หยุดสร้าง')
       .setStyle(ButtonStyle.Danger)
     );
   let botMessage;
@@ -1968,7 +1968,7 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
     clearInterval(typingInterval);
     try {
       botMessage = await originalMessage.reply({
-        content: 'Let me think..',
+        content: 'ขอคิดแป๊บนึงนะคะ..',
         components: [stopGeneratingButton]
       });
     } catch (error) {}
@@ -1993,8 +1993,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
         try {
           const embed = new EmbedBuilder()
             .setColor(0xFFA500)
-            .setTitle('Response Stopped')
-            .setDescription('Response generation stopped by the user.');
+            .setTitle('หยุดสร้างคำตอบแล้วค่ะ')
+            .setDescription('หยุดการสร้างคำตอบตามที่คุณต้องการแล้วนะคะ');
 
           interaction.reply({
             embeds: [embed],
@@ -2008,8 +2008,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
         try {
           const embed = new EmbedBuilder()
             .setColor(0xFF0000)
-            .setTitle('Access Denied')
-            .setDescription("It's not for you.");
+            .setTitle('ปุ่มนี้ไม่ใช่ของคุณน้า')
+            .setDescription('ดูเหมือนว่าปุ่มนี้จะไม่ได้มีไว้สำหรับคุณนะคะ');
 
           interaction.reply({
             embeds: [embed],
@@ -2083,8 +2083,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
               isLargeResponse = true;
               const embed = new EmbedBuilder()
                 .setColor(0xFFFF00)
-                .setTitle('Response Overflow')
-                .setDescription('The response got too large, will be sent as a text file once it is completed.');
+                .setTitle('คำตอบยาวเกินไป')
+                .setDescription('คำตอบยาวไปหน่อยนะคะ เดี๋ยวพอสร้างเสร็จแล้วจะส่งเป็นไฟล์ให้นะคะ');
 
               botMessage.edit({
                 embeds: [embed]
@@ -2141,8 +2141,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
           if (SEND_RETRY_ERRORS_TO_DISCORD) {
             const embed = new EmbedBuilder()
               .setColor(0xFF0000)
-              .setTitle('Generation Failure')
-              .setDescription(`All Generation Attempts Failed :(\n\`\`\`${error.message}\`\`\``);
+              .setTitle('สร้างคำตอบไม่สำเร็จ')
+              .setDescription(`พยายามสร้างคำตอบหลายครั้งแล้วแต่ไม่สำเร็จค่ะ :(\n\`\`\`${error.message}\`\`\``);
             const errorMsg = await originalMessage.channel.send({
               content: `<@${originalMessage.author.id}>`,
               embeds: [embed]
@@ -2152,8 +2152,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
           } else {
             const simpleErrorEmbed = new EmbedBuilder()
               .setColor(0xFF0000)
-              .setTitle('Bot Overloaded')
-              .setDescription('Something seems off, the bot might be overloaded! :(');
+              .setTitle('ระบบอาจจะทำงานหนักไปหน่อย')
+              .setDescription('เหมือนจะมีบางอย่างผิดปกตินะคะ ระบบอาจจะทำงานหนักเกินไป! :(');
             const errorMsg = await originalMessage.channel.send({
               content: `<@${originalMessage.author.id}>`,
               embeds: [simpleErrorEmbed]
@@ -2168,8 +2168,8 @@ async function handleModelResponse(initialBotMessage, chat, parts, originalMessa
           content: `<@${originalMessage.author.id}>`,
           embeds: [new EmbedBuilder()
             .setColor(0xFFFF00)
-            .setTitle('Retry in Progress')
-            .setDescription(`Generation Attempt(s) Failed, Retrying..\n\`\`\`${error.message}\`\`\``)
+            .setTitle('กำลังลองใหม่อีกครั้ง')
+            .setDescription(`การสร้างคำตอบล้มเหลว กำลังลองใหม่อีกครั้งนะคะ..\n\`\`\`${error.message}\`\`\``)
           ]
         });
         setTimeout(() => errorMsg.delete().catch(console.error), 5000);
@@ -2189,7 +2189,7 @@ function updateEmbed(botMessage, finalResponse, message, groundingMetadata = nul
       .setColor(hexColour)
       .setDescription(finalResponse)
       .setAuthor({
-        name: `To ${message.author.displayName}`,
+        name: `ถึงคุณ ${message.author.displayName}`,
         iconURL: message.author.displayAvatarURL()
       })
       .setTimestamp();
@@ -2224,7 +2224,7 @@ function addGroundingMetadataToEmbed(embed, groundingMetadata) {
   // Add search queries used by the model
   if (groundingMetadata.webSearchQueries && groundingMetadata.webSearchQueries.length > 0) {
     embed.addFields({
-      name: '🔍 Search Queries',
+      name: '🔍 คำค้นหา',
       value: groundingMetadata.webSearchQueries.map(query => `• ${query}`).join('\n'),
       inline: false
     });
@@ -2236,14 +2236,14 @@ function addGroundingMetadataToEmbed(embed, groundingMetadata) {
       .slice(0, 5) // Limit to first 5 chunks to avoid embed limits
       .map((chunk, index) => {
         if (chunk.web) {
-          return `• [${chunk.web.title || 'Source'}](${chunk.web.uri})`;
+          return `• [${chunk.web.title || 'แหล่งข้อมูล'}](${chunk.web.uri})`;
         }
-        return `• Source ${index + 1}`;
+        return `• แหล่งข้อมูล ${index + 1}`;
       })
       .join('\n');
     
     embed.addFields({
-      name: '📚 Sources',
+      name: '📚 แหล่งข้อมูล',
       value: chunks,
       inline: false
     });
