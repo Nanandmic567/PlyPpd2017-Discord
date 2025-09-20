@@ -106,7 +106,6 @@ const defaultServerSettings = config.defaultServerSettings;
 const workInDMs = config.workInDMs;
 const shouldDisplayPersonalityButtons = config.shouldDisplayPersonalityButtons;
 const SEND_RETRY_ERRORS_TO_DISCORD = config.SEND_RETRY_ERRORS_TO_DISCORD;
-const port = process.env.PORT;
 
 
 
