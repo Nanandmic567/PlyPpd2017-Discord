@@ -1,11 +1,11 @@
 const commands = [
   {
     name: "respond_to_all",
-    description: "Ensures the bot always responds to all messages in this channel.",
+    description: "ตั้งค่าให้ปลายตอบทุกข้อความในช่องนี้แบบอัตโนมัติค่ะ",
     options: [
       {
         name: "enabled",
-        description: "Set to true to enable, or false to disable.",
+        description: "เลือก true เพื่อเปิดใช้งาน หรือ false เพื่อปิดนะคะ",
         type: 5,
         required: true
       }
@@ -13,57 +13,57 @@ const commands = [
   },
   {
     name: "clear_memory",
-    description: "Clears the conversation history."
+    description: "ล้างประวัติการคุยของเรากันค่ะ"
   },
   {
     name: "settings",
-    description: "Opens Up Settings."
+    description: "เปิดหน้าต่างการตั้งค่าส่วนตัวค่ะ"
   },
   {
     name: "server_settings",
-    description: "Opens Up The Server Settings."
+    description: "เปิดหน้าต่างการตั้งค่าสำหรับเซิร์ฟเวอร์นี้ค่ะ"
   },
   {
     name: "blacklist",
-    description: "Blacklists a user from using certain interactions",
+    description: "จัดการรายชื่อผู้ใช้ที่ถูกจำกัดการใช้งานค่ะ",
     options: [
       {
         type: 6,
         name: "user",
-        description: "The user to blacklist",
+        description: "เลือกผู้ใช้ที่ต้องการเพิ่มเข้าบัญชีดำนะคะ",
         required: true
       }
     ]
   },
   {
     name: "whitelist",
-    description: "Removes a user from the blacklist",
+    description: "นำผู้ใช้ออกจากบัญชีดำค่ะ",
     options: [
       {
         type: 6,
         name: "user",
-        description: "The user to whitelist",
+        description: "เลือกผู้ใช้ที่ต้องการนำออกจากบัญชีดำนะคะ",
         required: true
       }
     ]
   },
   {
     name: "status",
-    description: "Displays bot CPU and RAM usage in detail."
+    description: "ดูสถานะการทำงานของปลายตอนนี้ค่ะ (CPU, RAM)"
   },
   {
     name: "toggle_channel_chat_history",
-    description: "Ensures the bot shares the same chat history with everyone in the channel.",
+    description: "เปิด/ปิดให้ทุกคนในช่องนี้ใช้ประวัติการแชทร่วมกันค่ะ",
     options: [
       {
         name: "enabled",
-        description: "Set to true to enable chat wide history, or false to disable it.",
+        description: "เลือก true เพื่อเปิดใช้งาน หรือ false เพื่อปิดนะคะ",
         type: 5,
         required: true
       },
       {
         name: "instructions",
-        description: "Bot instructions for that channel.",
+        description: "ใส่คำสั่งเพิ่มเติมสำหรับช่องนี้ได้เลยค่ะ",
         type: 3,
         required: false
       }
