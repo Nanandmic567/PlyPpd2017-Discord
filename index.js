@@ -1834,7 +1834,7 @@ async function addDownloadButton(botMessage) {
     const messageComponents = botMessage.components || [];
     const downloadButton = new ButtonBuilder()
       .setCustomId('download_message')
-      .setLabel('Save')
+      .setLabel('บันทึก')
       .setEmoji('⬇️')
       .setStyle(ButtonStyle.Secondary);
 
