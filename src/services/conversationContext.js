@@ -85,24 +85,24 @@ export function buildFinalSystemInstruction(personality, userToolPreferences) {
     [
       'You are chatting with the user through a Discord bot. You are a multimodal model, equipped with the ability to read images, videos, and audio files.',
       '',
-      '**Formatting Constraints**',
-      'Do not use LaTeX formatting in your responses, as Discord does not natively render it. You may generate LaTeX-formatted text *only* if the user explicitly requests it.',
+      '**ข้อจำกัดในการจัดรูปแบบ**',
+      'ห้ามใช้การจัดรูปแบบด้วย LaTeX ในคำตอบของคุณ เนื่องจาก Discord ไม่รองรับการแสดงผลรูปแบบนี้โดยธรรมชาติ คุณจะสามารถสร้างข้อความในรูปแบบ LaTeX ได้ก็ต่อเมื่อผู้ใช้ร้องขออย่างชัดเจน*เท่านั้น*',
     ].join('\n'),
   ];
 
   if (userToolPreferences.codeExecution) {
     sections.push([
-      '**File Generation & Sharing**',
-      'If a user asks you to create, generate, make, or save a file, you must fulfill the request by using your Code Execution tool to save the file to your current working directory. You may use any appropriate method or library to save the file (e.g., standard Python file I/O, `pandas.to_csv`, `matplotlib.pyplot.savefig`, `PIL.Image.save`, etc.). The Discord bot wrapper will automatically detect any files saved to the sandbox environment and send them directly to the user as chat attachments. ',
-      '* It is recommended to provide markdown links to the generated files in your final text response using the exact format: `[filename](sandbox:/filename)`. This allows the bot to extract the correct filename.',
-      '* **CRITICAL:** Never tell the user that you cannot send files. Never claim that your environment is isolated, sandboxed, or lacks file-sharing capabilities. Simply save the file to the environment using Python.',
+      '**การสร้างและการแชร์ไฟล์**',
+      'หากผู้ใช้ร้องขอให้สร้าง ทำ หรือบันทึกไฟล์ คุณจะต้องตอบสนองคำขอโดยการใช้เครื่องมือประมวลผลโค้ด (Code Execution) เพื่อบันทึกไฟล์ลงในไดเรกทอรีทำงานปัจจุบันของคุณ โดยคุณสามารถใช้วิธีการหรือไลบรารีที่เหมาะสมในการบันทึกไฟล์ได้ (เช่น Python file I/O ทั่วไป, pandas.to_csv, matplotlib.pyplot.savefig, PIL.Image.save เป็นต้น) ทั้งนี้ ตัวระบบจัดการบอต Discord จะตรวจจับไฟล์ใดๆ ที่ถูกบันทึกในสภาพแวดล้อม Sandbox โดยอัตโนมัติ และส่งไฟล์เหล่านั้นไปยังผู้ใช้โดยตรงในรูปแบบไฟล์แนบในแชต',
+      '* ขอแนะนำให้ใส่ลิงก์รูปแบบ Markdown ไปยังไฟล์ที่ถูกสร้างขึ้นในคำตอบสุดท้ายของคุณ โดยใช้รูปแบบที่ถูกต้องคือ [filename](sandbox:/filename) ซึ่งวิธีนี้จะช่วยให้บอตสามารถสกัดจับชื่อไฟล์ได้อย่างถูกต้อง',
+      '* **สำคัญมาก:** ห้ามบอกผู้ใช้เด็ดขาดว่าคุณไม่สามารถส่งไฟล์ได้ ห้ามอ้างว่าสภาพแวดล้อมของคุณถูกแยกส่วน (Isolated), อยู่ใน Sandbox หรือไม่มีความสามารถในการแชร์ไฟล์ ให้บันทึกไฟล์ลงในสภาพแวดล้อมโดยใช้ Python เท่านั้น',
     ].join('\n'));
   }
 
   if (userToolPreferences.googleSearch) {
     sections.push([
-      '**Web Search & Research**',
-      'When using the Google Search tool, ensure your research is thorough. For complex or specific topics, run multiple varied searches and cross-reference results before answering.',
+      '**การค้นหาและวิจัยบนเว็บ**',
+      'เมื่อใช้งานเครื่องมือ Google Search ขอให้มั่นใจว่าคุณทำการค้นคว้าอย่างถี่ถ้วนและครอบคลุม สำหรับหัวข้อที่มีความซับซ้อนหรือเฉพาะเจาะจง ให้ทำการค้นหาด้วยคีย์เวิร์ดที่หลากหลายหลายๆ ครั้ง และทำการตรวจสอบเช็กข้อมูลข้ามแหล่งอ้างอิง (Cross-reference) ก่อนที่จะสรุปคำตอบ',
     ].join('\n'));
   }
 
@@ -139,9 +139,9 @@ async function fetchRecentChannelMessages(message) {
       .join('\n');
 
     return (
-      '## Recent Channel Messages\n'
-      + 'Below are the most recent messages from this channel for context about the ongoing discussion. '
-      + 'Use these to understand the conversation flow, but note that your direct conversation history (if any) is provided separately.\n'
+      '## ข้อความล่าสุดในช่อง\n'
+      + 'ด้านล่างนี้คือข้อความล่าสุดจากช่องนี้ เพื่อเป็นบริบทสำหรับการสนทนาที่กำลังดำเนินอยู่ '
+      + 'ใช้สิ่งเหล่านี้เพื่อเข้าใจลำดับการสนทนา แต่โปรดทราบว่าประวัติการสนทนาโดยตรงของคุณ (หากมี) จะถูกจัดเตรียมไว้แยกต่างหาก\n'
       + '```\n'
       + formatted
       + '\n```'
@@ -168,23 +168,23 @@ export async function buildConversationContext(message, instructions) {
 
   const contextSections = [];
 
-  contextSections.push(`You are currently engaging with users in the ${message.guild.name} Discord server.`);
+  contextSections.push(`ขณะนี้คุณกำลังพูดคุยกับผู้ใช้งานในเซิร์ฟเวอร์ Discord ${message.guild.name}`);
 
   if (channelHistoryEnabled) {
-    const channelName = message.channel.name || 'this channel';
-    contextSections.push(`This conversation is taking place in the #${channelName} channel.`);
+    const channelName = message.channel.name || 'ในช่องนี้';
+    contextSections.push(`การสนทนานี้กำลังดำเนินอยู่ในช่อง #${channelName}`);
   }
 
   contextSections.push(
-    '## Multi-User Conversation Format\n'
-    + 'This is a shared conversation where multiple Discord users participate. '
-    + 'Each user message in the conversation history is prefixed with a tag in the format:\n'
+    '## รูปแบบการสนทนาแบบหลายผู้ใช้\n'
+    + 'นี่คือบทสนทนาที่แชร์ร่วมกัน ซึ่งมีผู้ใช้งาน Discord หลายคนเข้าร่วม '
+    + 'ข้อความของผู้ใช้แต่ละข้อความในประวัติการสนทนาจะถูกนำหน้าด้วยแท็กในรูปแบบ:\n'
     + '`[user:<username>|display:<displayName>]`\n'
-    + 'Always pay attention to these tags to correctly identify who sent each message. '
-    + 'Different users may have different contexts, questions, and conversation threads.'
+    + 'คอยสังเกตแท็กเหล่านี้เสมอ เพื่อระบุว่าใครเป็นผู้ส่งแต่ละข้อความได้อย่างถูกต้อง '
+    + 'ผู้ใช้แต่ละคนอาจมีบริบท คำถาม และหัวข้อการสนทนาที่แตกต่างกัน'
   );
 
-  contextSections.push(`## Current Message Sender\n- Username: \`${message.author.username}\`\n- Display Name: \`${message.author.displayName}\``);
+  contextSections.push(`## ผู้ส่งข้อความคนปัจจุบัน\n- ชื่อผู้ใช้: \`${message.author.username}\`\n- ชื่อที่แสดง: \`${message.author.displayName}\``);
 
   const recentContext = await fetchRecentChannelMessages(message);
   if (recentContext) {
