@@ -201,8 +201,8 @@ async function handleDeleteMessageInteraction(interaction, messageIdStr) {
 
   await replyWithEmbed(interaction, {
     variant: 'error',
-    title: 'Not For You',
-    description: 'This button is not meant for you.',
+    title: 'ปุ่มนี้ไม่ใช่ของคุณน้า',
+    description: 'ดูเหมือนว่าปุ่มนี้จะไม่ได้มีไว้สำหรับคุณนะคะ',
   });
 }
 
