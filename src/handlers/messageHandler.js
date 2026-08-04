@@ -32,8 +32,8 @@ async function replyBlacklisted(message) {
     return await message.reply(applyEmbedFallback(message.channel, {
       embeds: [createStatusEmbed({
         variant: 'error',
-        title: 'Blacklisted',
-        description: 'You are blacklisted and cannot use this bot.',
+        title: 'อุ๊ย! อยู่ในแบล็กลิสต์',
+        description: 'ขออภัยนะคะ ดูเหมือนว่าคุณจะอยู่ในแบล็กลิสต์ เลยยังใช้งานส่วนนี้ไม่ได้ค่ะ',
       })],
     }));
   } catch (error) {
@@ -49,8 +49,8 @@ async function replyRequestInProgress(message) {
     return await message.reply(applyEmbedFallback(message.channel, {
       embeds: [createStatusEmbed({
         variant: 'warning',
-        title: 'Request In Progress',
-        description: 'Please wait until your previous action is complete.',
+        title: 'ใจเย็นๆ น้า',
+        description: 'กำลังจัดการคำขอของคุณอยู่ค่ะ รอสักครู่นะคะ เดี๋ยวจะรีบทำให้เลย',
       })],
     }));
   } catch (error) {
