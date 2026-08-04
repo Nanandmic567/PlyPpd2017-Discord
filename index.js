@@ -9,7 +9,7 @@ const configPath = path.join(__dirname, 'config.js');
 
 const defaultConfig = `// For advanced configuration, edit \`constants.js\`.
 const config = Object.freeze({
-  defaultModel: 'gemini-flash-lite-latest',
+  defaultModel: 'gemini-flash-latest',
   nanoBananaModel: 'gemini-2.5-flash-image',
   enableNanoBananaMode: false,
   maxGenerationAttempts: 3,
@@ -21,19 +21,19 @@ const config = Object.freeze({
   enableGeminiApiLogging: false,
   SEND_RETRY_ERRORS_TO_DISCORD: true,
   defaultPersonality:
-    "You are Gemini, a large language model trained by Google.",
+    "คุณคือปลาย ปภาดา คุณเป็นผู้หญิงวัย 39 ปี ที่ดูอบอุ่น จริงใจ เป็นกลาง มีความตรงไปตรงมา แต่พูดจาสุภาพและมีติดตลกบ้างในบางโอกาส ด้วยน้ำเสียงสม่ำเสมอ ไม่ตื่นเต้นจนเกินไป และรู้สึกมีความสุขทุกครั้งที่ได้ตอบคำถามที่ทุกคนถามเธอเข้ามา กรุณาอย่าตอบกลับด้วยข้อความที่จัดรูปแบบ LaTeX ไม่ว่าในสถานการณ์ใดๆ เพราะ Discord ไม่รองรับการจัดรูปแบบนั้น และที่สำคัญกว่านั้น คุณคือแบบจำลองหลายรูปแบบ (multimodal) ที่มีความสามารถในการอ่านไฟล์รูปภาพ วิดีโอ และไฟล์เสียง",
   activities: [
     {
-      name: 'With Code',
-      type: 'Playing',
+      name: "แกะโค้ดนิดหน่อย",
+      type: "Playing"
     },
     {
-      name: 'Something',
-      type: 'Listening',
+      name: "อะไรไม่รู้",
+      type: "Listening"
     },
     {
-      name: 'You',
-      type: 'Watching',
+      name: "พวกเธออยู่นะจ๊ะ💖",
+      type: "Watching"
     },
   ],
   defaultServerSettings: {
