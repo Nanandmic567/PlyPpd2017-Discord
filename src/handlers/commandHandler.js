@@ -54,8 +54,8 @@ async function handleClearMemoryCommand(interaction) {
 
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Chat History Cleared',
-    description: `Cleared history for session **${activeSession.sessionName}** (ID: ${activeSession.sessionId}).`,
+    title: 'ล้างประวัติการคุยแล้วค่ะ',
+    description: `ปลายล้างประวัติการใช้งานสำหรับเซสชัน **${activeSession.sessionName}** (ID: ${activeSession.sessionId}) เรียบร้อยแล้วนะคะ`,
   });
 }
 
@@ -123,8 +123,8 @@ async function handleStatusCommand(interaction) {
         content: null,
         embeds: [createStatusEmbed({
           variant: 'error',
-          title: 'Status Request Failed',
-          description: 'An error occurred while fetching system status.',
+          title: 'การส่งคำขอตรวจสอบสถานะไม่สำเร็จนะคะ',
+          description: 'เกิดข้อผิดพลาดขึ้นระหว่างดึงข้อมูลสถานะของระบบนะคะ',
         })],
         components: [],
       }));
@@ -133,8 +133,8 @@ async function handleStatusCommand(interaction) {
 
     await replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Status Request Failed',
-      description: 'An error occurred while fetching system status.',
+      title: 'การส่งคำขอตรวจสอบสถานะไม่สำเร็จนะคะ',
+      description: 'เกิดข้อผิดพลาดขึ้นระหว่างดึงข้อมูลสถานะของระบบนะคะ',
       flags: MessageFlags.Ephemeral,
     });
   }
@@ -152,16 +152,16 @@ async function handleBlacklistCommand(interaction) {
     await persistStateChange();
     return replyWithEmbed(interaction, {
       variant: 'success',
-      title: 'User Blocked',
-      description: `<@${userId}> has been blocked.`,
+      title: 'ผู้ใช้ถูกบล็อกเรียบร้อยแล้วค่ะ',
+      description: `เรียบร้อยค่ะ บล็อกคุณ <@${userId}> ให้แล้วนะคะ`,
       flags: undefined,
     });
   }
 
   return replyWithEmbed(interaction, {
     variant: 'warning',
-    title: 'User Already Blocked',
-    description: `<@${userId}> is already blocked.`,
+    title: 'ผู้ใช้คนนี้ถูกบล็อกไปแล้วนะคะ',
+    description: `คุณ <@${userId}> ถูกบล็อกไปแล้วก่อนหน้านี้นะคะ`,
     flags: undefined,
   });
 }
@@ -178,16 +178,16 @@ async function handleWhitelistCommand(interaction) {
     await persistStateChange();
     return replyWithEmbed(interaction, {
       variant: 'success',
-      title: 'User Unblocked',
-      description: `<@${userId}> has been removed from the block list.`,
+      title: 'ปลดบล็อกผู้ใช้เรียบร้อยแล้วนะคะ',
+      description: `นำ <@${userId}> ออกจากรายการบล็อกเรียบร้อยแล้วนะคะ`,
       flags: undefined,
     });
   }
 
   return replyWithEmbed(interaction, {
     variant: 'warning',
-    title: 'User Not Found',
-    description: `<@${userId}> is not in the block list.`,
+    title: 'ไม่พบผู้ใช้ท่านนี้ค่ะ',
+    description: `คุณ <@${userId}> ไม่ได้อยู่ในรายชื่อที่ถูกบล็อกนะคะ`,
     flags: undefined,
   });
 }
