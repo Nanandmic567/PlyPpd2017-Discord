@@ -97,8 +97,8 @@ async function handleSessionCreate(interaction) {
   if (!created) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Create Failed',
-      description: 'A session with that ID already exists. Please try again.',
+      title: 'สร้างไม่สำเร็จนะคะ',
+      description: 'ดูเหมือนรหัสเซสชันนี้จะมีอยู่ในระบบแล้วนะคะ รบกวนลองใหม่อีกครั้งค่ะ',
     });
   }
 
@@ -115,8 +115,8 @@ async function handleSessionCreate(interaction) {
 
   return replyAfterSessionRefreshFailure(interaction, {
     variant: 'success',
-    title: 'Session Created',
-    description: `Created **${sessionName}** and switched to it.\nSession ID: \`${sessionId}\``,
+    title: 'สร้างเซสชันเรียบร้อยแล้วนะคะ',
+    description: `สร้าง **${sessionName}** และสลับไปใช้งานเรียบร้อยแล้วค่ะ\nSession ID: \`${sessionId}\``,
   });
 }
 
@@ -126,8 +126,8 @@ async function handleSessionRename(interaction) {
   if (sessionId === 'default') {
     return replyWithEmbed(interaction, {
       variant: 'warning',
-      title: 'Rename Not Allowed',
-      description: 'The default session cannot be renamed.',
+      title: 'ไม่อนุญาตให้เปลี่ยนชื่อนะคะ',
+      description: 'เซสชันเริ่มต้น (Default session) ไม่สามารถเปลี่ยนชื่อได้นะคะ',
     });
   }
 
@@ -136,8 +136,8 @@ async function handleSessionRename(interaction) {
   if (!newName) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Invalid Name',
-      description: 'New session name cannot be empty.',
+      title: 'ชื่อไม่ถูกต้องค่ะ',
+      description: 'อย่าลืมตั้งชื่อให้เซสชันใหม่ด้วยนะคะ ปล่อยเป็นช่องว่างไว้ไม่ได้น้า',
     });
   }
 
@@ -145,8 +145,8 @@ async function handleSessionRename(interaction) {
   if (!renamed) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Rename Failed',
-      description: `Session ID \`${sessionId}\` was not found.`,
+      title: 'เปลี่ยนชื่อไม่สำเร็จนะคะ',
+      description: `ไม่พบ Session ID \`${sessionId}\` ในระบบนะคะ`,
     });
   }
 
@@ -161,7 +161,7 @@ async function handleSessionRename(interaction) {
 
   return replyAfterSessionRefreshFailure(interaction, {
     variant: 'success',
-    title: 'Session Renamed',
+    title: 'เปลี่ยนชื่อเซสชันให้เรียบร้อยแล้วค่ะ',
     description: `Session \`${sessionId}\` is now named **${newName}**.`,
   });
 }
