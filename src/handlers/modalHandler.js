@@ -174,8 +174,8 @@ async function handleCustomPersonality(interaction) {
   await persistStateChange();
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Success',
-    description: 'Custom Personality Instructions Saved!',
+    title: 'เรียบร้อยค่ะ!',
+    description: 'บันทึกบุคลิกภาพที่คุณตั้งค่าไว้ให้แล้วนะคะ',
   });
 }
 
@@ -195,8 +195,8 @@ async function handleServerPersonality(interaction) {
   await persistStateChange();
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Success',
-    description: 'Custom Server Personality Instructions Saved!',
+    title: 'เรียบร้อยค่ะ!',
+    description: 'บันทึกบุคลิกภาพที่คุณตั้งค่าไว้ให้แล้วนะคะ',
   });
 }
 
@@ -216,7 +216,7 @@ async function handleChannelPersonality(interaction) {
   await persistStateChange();
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Success',
-    description: 'Custom Channel Personality Instructions Saved!',
+    title: 'เรียบร้อยค่ะ!',
+    description: 'บันทึกบุคลิกภาพสำหรับช่องนี้ให้แล้วนะคะ',
   });
 }
