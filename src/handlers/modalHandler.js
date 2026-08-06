@@ -85,8 +85,8 @@ async function handleSessionCreate(interaction) {
   if (!sessionName) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Invalid Name',
-      description: 'Session name cannot be empty.',
+      title: 'ชื่อไม่ถูกต้องค่ะ',
+      description: 'อย่าลืมตั้งชื่อให้เซสชันใหม่ด้วยนะคะ ปล่อยเป็นช่องว่างไว้ไม่ได้น้า',
     });
   }
 
