@@ -162,7 +162,7 @@ async function handleSessionRename(interaction) {
   return replyAfterSessionRefreshFailure(interaction, {
     variant: 'success',
     title: 'เปลี่ยนชื่อเซสชันให้เรียบร้อยแล้วค่ะ',
-    description: `Session \`${sessionId}\` is now named **${newName}**.`,
+    description: `ตอนนี้เซสชัน \`${sessionId}\` เปลี่ยนชื่อเป็น **${newName}** เรียบร้อยแล้วค่ะ`,
   });
 }
 
@@ -183,8 +183,8 @@ async function handleServerPersonality(interaction) {
   if (!interaction.guildId) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Server Command Only',
-      description: 'This form can only be submitted from a server.',
+      title: 'ใช้ได้แค่ในเซิร์ฟเวอร์นะคะ',
+      description: 'คำสั่งนี้สามารถใช้ได้ในเซิร์ฟเวอร์เท่านั้นค่ะ',
     });
   }
 
@@ -204,8 +204,8 @@ async function handleChannelPersonality(interaction) {
   if (!interaction.channelId) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Channel Not Found',
-      description: 'This form requires a valid channel context.',
+      title: 'ไม่พบช่องรายการนะคะ',
+      description: 'แบบฟอร์มนี้จำเป็นต้องระบุบริบทของช่องทาง (Channel Context) ที่ถูกต้องนะคะ',
     });
   }
 
