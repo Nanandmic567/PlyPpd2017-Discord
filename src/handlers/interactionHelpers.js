@@ -200,8 +200,8 @@ export async function ensureInteractionNotBlacklisted(interaction) {
 
   await replyWithEmbed(interaction, {
     variant: 'error',
-    title: 'Blacklisted',
-    description: 'You are blacklisted and cannot use this interaction.',
+    title: 'อุ๊ย! อยู่ในแบล็กลิสต์',
+    description: 'ขออภัยนะคะ ดูเหมือนว่าคุณจะอยู่ในแบล็กลิสต์ เลยยังใช้งานส่วนนี้ไม่ได้ค่ะ',
   });
 
   return false;

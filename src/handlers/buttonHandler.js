@@ -219,8 +219,8 @@ async function handleClearMemoryButton(interaction) {
 
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Chat History Cleared',
-    description: `Cleared history for session **${activeSession.sessionName}** (ID: ${activeSession.sessionId}).`,
+    title: 'ล้างประวัติการคุยแล้วค่ะ',
+    description: `ล้างประวัติการสนทนาสำหรับเซสชัน **${activeSession.sessionName}** (ID: ${activeSession.sessionId}) เรียบร้อยแล้วค่ะ`,
   });
 }
 
@@ -326,8 +326,8 @@ async function downloadConversation(interaction) {
   if (!history.length) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'No History Found',
-      description: `No conversation history found for session **${activeSession.sessionName}** (ID: ${activeSession.sessionId}).`,
+      title: 'ไม่พบประวัติการสนทนา',
+      description: `ยังไม่มีประวัติการคุยกันในเซสชัน **${activeSession.sessionName}** (ID: ${activeSession.sessionId}) นี้เลยค่ะ ลองคุยกันก่อนนะคะ`,
     });
   }
 
