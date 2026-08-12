@@ -94,11 +94,11 @@ export function getCustomPersonalityDisabledReason(interaction) {
   const lockScope = resolveLockScope(channelLock, serverLock);
 
   if (lockScope === 'channel') {
-    return 'Custom personality is not enabled for this channel, channel-wide personality is active.';
+    return 'ตอนนี้กำลังเปิดใช้บุคลิกภาพแบบทั้งช่องข้อความอยู่ เลยยังตั้งค่าบุคลิกส่วนตัวไม่ได้นะคะ';
   }
 
   if (lockScope === 'server') {
-    return 'Custom personality is not enabled for this server, server-wide personality is active.';
+    return 'ตอนนี้เซิร์ฟเวอร์เปิดใช้บุคลิกภาพแบบทั้งเซิร์ฟเวอร์อยู่ เลยยังตั้งค่าบุคลิกส่วนตัวไม่ได้นะคะ';
   }
 
   return null;
