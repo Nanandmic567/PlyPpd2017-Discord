@@ -159,8 +159,8 @@ async function handleDeleteMessageInteraction(interaction, messageIdStr) {
   if (messageIds.length === 0) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Invalid Message Link',
-      description: 'This delete button payload is invalid or expired.',
+      title: 'ลิงก์ข้อความไม่ถูกต้องนะคะ',
+      description: 'ข้อมูลสำหรับปุ่มลบนี้ไม่ถูกต้อง หรือหมดอายุไปแล้วนะคะ',
     });
   }
 
@@ -255,8 +255,8 @@ async function handleRemovePersonalityCommand(interaction) {
 
   return replyWithEmbed(interaction, {
     variant: 'success',
-    title: 'Removed',
-    description: 'Custom personality instructions removed!',
+    title: 'ลบเรียบร้อยค่ะ',
+    description: 'ลบการตั้งค่าบุคลิกภาพของคุณแล้ว กลับไปใช้บุคลิกภาพเริ่มต้นนะคะ',
   });
 }
 
@@ -289,8 +289,8 @@ async function downloadMessage(interaction) {
   if (isOverflowDownload && !overflowSourceMessageId) {
     return replyWithEmbed(interaction, {
       variant: 'error',
-      title: 'Invalid Overflow Link',
-      description: 'This overflow save button is malformed or missing its file reference.',
+      title: 'ลิงก์ Overflow นี้ไม่ถูกต้องนะคะ',
+      description: 'ปุ่มบันทึกในส่วน overflow นี้ดูจะผิดรูปแบบไปหน่อย หรือไม่ก็ขาดการอ้างอิงถึงไฟล์อยู่นะคะ',
     });
   }
 
@@ -303,8 +303,8 @@ async function downloadMessage(interaction) {
       variant: 'error',
       title: overflowSourceMessageId ? 'Overflow File Unavailable' : 'Empty Message',
       description: overflowSourceMessageId
-        ? 'Could not retrieve the overflow response file. It may be missing, invalid, or no longer accessible.'
-        : 'The message is empty..?',
+        ? 'ไม่สามารถดึงไฟล์การตอบกลับส่วนเกินได้ค่ะ ไฟล์นี้อาจจะสูญหาย ไม่ถูกต้อง หรือไม่สามารถเข้าถึงได้อีกแล้วนะคะ'
+        : 'ข้อความว่างเปล่า..?',
     });
   }
 
@@ -590,8 +590,8 @@ async function clearServerChatHistory(interaction) {
   if (!settings.serverChatHistory) {
     return replyWithEmbed(interaction, {
       variant: 'warning',
-      title: 'Feature Disabled',
-      description: 'Server-wide chat history is disabled for this server.',
+      title: 'คุณสมบัตินี้ปิดอยู่ค่ะ',
+      description: 'ประวัติการแชทของเซิร์ฟเวอร์ปิดใช้งานอยู่ เลยยังทำอะไรไม่ได้นะคะ',
     });
   }
 
